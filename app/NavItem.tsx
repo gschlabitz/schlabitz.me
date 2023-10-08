@@ -8,7 +8,7 @@ export default function NavItem({
   children: React.ReactNode
 }) {
   return (
-    <Link href={href} className="mx-8 rounded-xl bg-slate-500 px-8">
+    <Link href={href} className="bg-base2 dark:bg-base02 mx-8 rounded-xl px-8">
       {children}
     </Link>
   )

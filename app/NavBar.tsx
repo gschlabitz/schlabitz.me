@@ -1,14 +1,17 @@
 import { useCallback } from "react"
-import { FaMoon, FaSun } from "react-icons/fa"
+import { BsSun, BsMoon, BsCaretRightFill } from "react-icons/bs"
+import Link from "next/link"
 
 export default function NavBar({
   children,
   setTheme,
   theme,
+  title,
 }: {
   children: React.ReactNode
   setTheme: (theme: string) => void
   theme: string
+  title: string
 }) {
   const toggleTheme = useCallback(() => {
     const newTheme = theme === "dark" ? "light" : "dark"
@@ -19,14 +22,18 @@ export default function NavBar({
   }, [setTheme, theme])
 
   return (
-    <div className="flex justify-between py-4">
-      <div className="mx-8">Guido Schlabitz</div>
+    <div className="flex justify-between p-4">
+      <span className="min-w-max">
+        <Link href="/">Guido Schlabitz</Link>
+        <BsCaretRightFill size="13" />
+        {title}
+      </span>
       <div className="flex justify-between">{children}</div>
-      <div className="mx-8">
+      <div>
         {theme === "dark" ? (
-          <FaMoon title="Switch to Light Mode" onClick={toggleTheme} />
+          <BsSun title="Switch to Light Mode" onClick={toggleTheme} />
         ) : (
-          <FaSun title="Switch to Dark Mode" onClick={toggleTheme} />
+          <BsMoon title="Switch to Dark Mode" onClick={toggleTheme} />
         )}
       </div>
     </div>

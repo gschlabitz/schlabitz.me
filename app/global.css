@@ -2,9 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a {
+    color: theme("colors.blue");
+  }
+  p {
+    margin-bottom: 1em;
+  }
+}
+
 @layer components {
   .dark {
-    background: theme("colors.darkgray");
-    color: theme("colors.lightgray");
+    background: theme("colors.base03");
+    color: theme("colors.base3");
   }
+}
+
+.react-icons {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
 }
